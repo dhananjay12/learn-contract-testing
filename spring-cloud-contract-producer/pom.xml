@@ -87,7 +87,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<baseClassForTests>
-						 com.mynotes.springcloud.contract.producer.SpringCloudContractProducerApplicationTests
+						 com.mynotes.springcloud.contract.producer.BaseClass
 					</baseClassForTests>
 				</configuration>
 			</plugin>
