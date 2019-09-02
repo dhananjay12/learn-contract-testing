@@ -33,7 +33,7 @@ public class ConsumerTestUnit {
                         .withStatus(200)
                         .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_UTF8_VALUE)
                         .withBody(jsonForPerson(new Person(1, "Jane", "Doe")))));
-        BDDAssertions.then(this.consumerClient.getPerson(1).getFirstname()).isEqualTo("Jane");
+        BDDAssertions.then(this.consumerClient.getPerson(1).getFname()).isEqualTo("Jane");
     }
 
     private String jsonForPerson(final Person person) throws Exception {

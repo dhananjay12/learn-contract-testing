@@ -26,22 +26,21 @@ class ConsumerClient {
 				HttpMethod.GET, null, Person.class);
 
 		return result.getBody();
-
 	}
-
 }
 
 class Person {
+
 	private int id;
 
-	public String firstname;
+	public String fname;
 
 	public String lname;
 
-	public Person(final int id, final String firstname, final String lname) {
+	public Person(final int id, final String fname, final String lname) {
 		super();
 		this.id = id;
-		this.firstname = firstname;
+		this.fname = fname;
 		this.lname = lname;
 	}
 
@@ -52,24 +51,24 @@ class Person {
 		return id;
 	}
 
-	public void setId(final int id) {
+	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getFname() {
+		return fname;
+	}
+
+	public void setFname(String fname) {
+		this.fname = fname;
 	}
 
 	public String getLname() {
 		return lname;
 	}
 
-	public void setLname(final String lname) {
+	public void setLname(String lname) {
 		this.lname = lname;
-	}
-
-	public String getFirstname() {
-		return firstname;
-	}
-
-	public void setFirstname(final String firstname) {
-		this.firstname = firstname;
 	}
 
 }

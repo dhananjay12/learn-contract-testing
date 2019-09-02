@@ -1,7 +1,7 @@
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-  description("When a POST request with a User is made, the created user's ID is returned")
+  description("When a GET request with a Employee id=1 is made, the Employee object is returned")
   request {
     method 'GET'
     url '/employee/1'  
