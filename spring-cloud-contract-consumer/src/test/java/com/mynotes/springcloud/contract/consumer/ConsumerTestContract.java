@@ -8,12 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
+import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest(classes = SpringCloudContractConsumerApplication.class)
 @RunWith(SpringRunner.class)
 @AutoConfigureJsonTesters
-@AutoConfigureStubRunner(ids = "com.mynotes.spring-cloud:spring-cloud-contract-producer:+:stubs:8081", workOffline = true)
+@AutoConfigureStubRunner(ids = "com.mynotes.spring-cloud:spring-cloud-contract-producer:+:stubs:8081", stubsMode = StubRunnerProperties.StubsMode.LOCAL)
 public class ConsumerTestContract {
 
     @Autowired

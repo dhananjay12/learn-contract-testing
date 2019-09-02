@@ -18,15 +18,15 @@ import io.restassured.module.mockmvc.RestAssuredMockMvc;
 public class BaseClass {
 
     @Autowired
-    EmployeeController         aEmployeeController;
+    EmployeeController   aEmployeeController;
 
     @MockBean
-    private EmployeeRepository employeeRepository;
+    private EmployeeService employeeService;
 
     @Before
     public void before() {
         final Employee aEmployee = new Employee(1, "Jane", "Doe", 123000.00, "M");
-        Mockito.when(this.employeeRepository.findById(1)).thenReturn(Optional.of(aEmployee));
+        Mockito.when(this.employeeService.findById(1)).thenReturn(Optional.of(aEmployee));
         RestAssuredMockMvc.standaloneSetup(this.aEmployeeController);
     }
 

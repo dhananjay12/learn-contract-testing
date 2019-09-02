@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-public class EmployeeControllerTest {
+public class EmployeeControllerTest extends BaseClass{
 
     @LocalServerPort
     private int        port;
@@ -25,28 +25,16 @@ public class EmployeeControllerTest {
     private String     uri;
 
     @Autowired
-    EmployeeRepository employeeRepository;
+    EmployeeService employeeRepository;
 
     @PostConstruct
     public void init() {
         uri = "http://localhost:" + port;
     }
 
-    @After
-    public void cleanRepo() {
-        employeeRepository.deleteAll();
-    }
 
     @Test
     public void getEmployeeFoundTest() {
-        //Arrange
-        final Employee employee = new Employee();
-        employee.setFname("Jane");
-        employee.setLname("Doe");
-        employee.setSalary(123000.00);
-        employee.setGender("M");
-        employeeRepository.save(employee);
-        //Act-Assert
         get(uri + "/employee/1").then().assertThat().statusCode(200).body("fname", equalTo("Jane"));
     }
 

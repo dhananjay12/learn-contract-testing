@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmployeeController {
 	
 	@Autowired
-	EmployeeRepository employeeRepository;
+	EmployeeService employeeService;
 	
 	@GetMapping(value = "employee/{id}")
 	public ResponseEntity<?> getEmployee(@PathVariable("id") int id) {
-		Optional<Employee> employee = employeeRepository.findById(id);
+		Optional<Employee> employee = employeeService.findById(id);
 		if (employee.isPresent()) {
 			return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(employee.get());
 		} else {
