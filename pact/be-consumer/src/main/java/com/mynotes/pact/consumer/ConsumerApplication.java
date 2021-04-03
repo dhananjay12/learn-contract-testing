@@ -1,13 +1,13 @@
-package com.mynotes.pact.beconsumer;
+package com.mynotes.pact.consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BeConsumerApplication {
+public class ConsumerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BeConsumerApplication.class, args);
+		SpringApplication.run(ConsumerApplication.class, args);
 	}
 
 }

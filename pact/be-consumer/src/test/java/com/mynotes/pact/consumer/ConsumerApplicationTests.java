@@ -1,10 +1,10 @@
-package com.mynotes.pact.beconsumer;
+package com.mynotes.pact.consumer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BeConsumerApplicationTests {
+class ConsumerApplicationTests {
 
 	@Test
 	void contextLoads() {
