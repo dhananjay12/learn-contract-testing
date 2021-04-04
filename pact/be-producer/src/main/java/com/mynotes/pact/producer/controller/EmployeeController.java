@@ -18,12 +18,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
 
     @Autowired
     EmployeeService employeeService;
+
+    @GetMapping("/find")
+    public List<Employee> employee() {
+
+        return employeeService.findAll();
+    }
 
     @GetMapping("/{id}")
     public Employee employee(@PathVariable int id) throws EntityNotFoundException {

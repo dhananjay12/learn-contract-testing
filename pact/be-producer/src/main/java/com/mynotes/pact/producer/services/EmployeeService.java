@@ -1,9 +1,12 @@
 package com.mynotes.pact.producer.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 import com.mynotes.pact.producer.dto.Employee;
 import com.mynotes.pact.producer.exceptions.EntityNotFoundException;
@@ -16,6 +19,11 @@ public class EmployeeService {
     //Mimicking DB ...Not Fully Thread safe
     private static final AtomicInteger count = new AtomicInteger(0);
     private Map<Integer, Employee> employeeMap = new ConcurrentHashMap<>();
+
+    public List<Employee> findAll() {
+        return employeeMap.values().stream()
+                .collect(Collectors.toList());
+    }
 
     public Employee findEmployeeById(int id) throws EntityNotFoundException {
         return checkEmployee(id);

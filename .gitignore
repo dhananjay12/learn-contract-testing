@@ -3,7 +3,7 @@
 .mvn
 mvn*
 .DS_Store
-
+**/target/**
 ### STS ###
 .apt_generated
 .classpath
